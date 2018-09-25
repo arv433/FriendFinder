@@ -1,9 +1,11 @@
+/* eslint-disable */
+
 var express = require("express");
 var bodyParser = require("body-parser");
 var path = require("path");
 var http = require("http");
 var fs = require("fs");
-var routes = require("./app/routing/htmlRoutes")
+var routes = require("./app/routing/htmlRoutes");
 
 var PORT = 8080;
 
