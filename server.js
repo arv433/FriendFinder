@@ -11,10 +11,10 @@ app.use(bodyParser.json());
 var path = require("path");
 
 // API routing
-var apiRouting = require("./app/routing/apiRoutes");
+var apiRouting = require(path.join(__dirname, "app", "routing", "apiRoutes"));
 apiRouting.setAPI(app, path);
 // Static pages routing
-var staticRouting = require("./app/routing/htmlRoutes");
+var staticRouting = require(path.join(__dirname, "app", "routing", "htmlRoutes"));
 staticRouting.setStatics(app, path);
 
 var PORT = 8080;
