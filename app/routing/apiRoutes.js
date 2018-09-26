@@ -26,17 +26,23 @@ module.exports = setAPI = function (appMod, pathMod) {
                     // compound the absolute difference between the uploaded scores and the iteration's scores onto difference
                     difference += Math.abs(req.body.scores[j] - perScore[j]);
                 }
+                console.log("\n\nTotal difference between my answers and this iteration: " + difference);
                 // if best was assigned before...
-                if (best) {
+                if (!(best == null)) {
                     // if best's difference is greater than the difference on this iteration...
+                    console.log("Given that there is a best, is the best's difference greater than this difference?");
+                    console.log(best.diff > difference);
+                    console.log("Is that difference equal?");
+                    console.log(best.diff === difference);
+                    console.log(best);
                     if (best.diff > difference) {
                         // ...make this iteration the new best, remembering the index and the difference
-                        best = {index: i, difference: difference};
+                        best = {index: i, diff: difference};
                         // if best's difference is the same as the difference on this iteration...
                     } else if (best.diff === difference) {
                         // ...randomly choose between the two and assign the new best
                         if (Math.floor(Math.random() * 2) === 0) {
-                            best = {index: i, difference: difference};
+                            best = {index: i, diff: difference};
                         }
                     }
                 // if there was not yet a best assigned...
@@ -46,6 +52,8 @@ module.exports = setAPI = function (appMod, pathMod) {
                 }
             }
         }
+        console.log("Final best is: ");
+        console.log(best);
         // send the response through the modal
         res.json(dbFile[best.index]);
 
