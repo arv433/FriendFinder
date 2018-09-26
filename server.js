@@ -12,7 +12,7 @@ var path = require("path");
 // routing
 var apiRouting = require("./app/routing/apiRoutes");
 var staticRouting = require("./app/routing/htmlRoutes");
-
+apiRouting.setAPI(app, path);
 staticRouting.setStatics(app, path);
 
 var PORT = 8080;
