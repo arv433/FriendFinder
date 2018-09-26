@@ -17,7 +17,7 @@ require(path.join(__dirname, "app", "routing", "apiRoutes"))(app, path);
 require(path.join(__dirname, "app", "routing", "htmlRoutes"))(app, path);
 
 // Setting dynamic port
-app.set('port', process.env.PORT || 8080);
+app.set("port", process.env.PORT || 8080);
 
 // Listening app to port
 app.listen(app.get("port"), function(){
