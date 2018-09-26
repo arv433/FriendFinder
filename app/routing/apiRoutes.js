@@ -1,11 +1,11 @@
-exports.getAPI = function(appMod, pathMod) {
-    var db = require("../data/friends.js");
-    appMod.get("/api/friends", function(req, res) {
-        res.send(db.data);
+var relPath = "../data/friends.js";
+var dbFile = require(relPath);
+
+exports.setAPI = function (appMod, pathMod) {
+    appMod.get("/api/friends", function (req, res) {
+        res.sendFile(pathMod.join(__dirname + relPath));
+    });
+    appMod.post("/api/friends", function (req, res) {
+        dbFile.data.push(req.body);
     });
 }
-// exports.updateDB = function(newUser, appMod, pathMod) {
-//     appMod.post(, function (req, res) {
-
-//     })
-// }
