@@ -1,4 +1,4 @@
-var data = [
+module.exports = data = [
     // seeds
     {
         name: "Sally",
@@ -26,4 +26,3 @@ var data = [
         scores: [5, 2, 4, 1, 3, 2, 4, 1, 5, 3]
     }
 ];
-exports.data = data;

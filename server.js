@@ -7,20 +7,19 @@ var bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-// path module
+// load path module
 var path = require("path");
 
 // API routing
-var apiRouting = require(path.join(__dirname, "app", "routing", "apiRoutes"));
-apiRouting.setAPI(app, path);
+require(path.join(__dirname, "app", "routing", "apiRoutes"))(app, path);
+
 // Static pages routing
-var staticRouting = require(path.join(__dirname, "app", "routing", "htmlRoutes"));
-staticRouting.setStatics(app, path);
+require(path.join(__dirname, "app", "routing", "htmlRoutes"))(app, path);
 
-var PORT = 8080;
-
+// Setting dynamic port
 app.set('port', process.env.PORT || 8080);
 
+// Listening app to port
 app.listen(app.get("port"), function(){
     console.log("Listening on port " + app.get("port"));
 });
