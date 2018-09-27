@@ -1,6 +1,6 @@
 module.exports = setAPI = function (appMod, pathMod) {
     // load JSON object that holds seeds and collected data
-    var dbFile = require(pathMod.join("..", "data", "friends.js"));
+    var dbFile = require(pathMod.join(__dirname, "..", "data", "friends.js"));
 
     // 1st route
     // set GET route to the contents of dbFile
